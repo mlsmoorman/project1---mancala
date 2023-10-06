@@ -8,17 +8,20 @@ const POCKETS = [
     "A4",
     "A5",
     "A6",
+    "Mancala-A",
     "B1",
     "B2",
     "B3",
     "B4",
     "B5",
     "B6",
-]
-const MANCALA = [
-    "Mancala-A",
     "Mancala-B"
 ]
+
+// const MANCALA = [
+//     "Mancala-A",
+//     "Mancala-B"
+// ]
 
 const PLAYERS = [
     "A",
@@ -43,7 +46,8 @@ const pocketsBtn = document.querySelector('#pockets'); // cache player's selecti
 const playersEl = document.querySelector('#player-turn'); // cache player's turn
 const scoreAEl = document.querySelector('#scoreA'); // cache player A's score
 const scoreBEl = document.querySelector('#scoreB'); // cache player B's score
-const replayEl = document.querySelector('footer')
+const replayEl = document.querySelector('footer');  // cache the replay element
+
 
 
 /*---------------------------*/
@@ -54,6 +58,8 @@ const replayEl = document.querySelector('footer')
 pocketsBtn.addEventListener('click', handleMove); // logs which button is clicked
 replayEl.addEventListener('click', replayGame);
 
+
+
 /*--------------------------------------------*/
 /*----- CONTROLLER FUNCTIONS DEFINITIONS -----*/
 /*--------------------------------------------*/
@@ -62,6 +68,7 @@ init ();
 //==== function init - set the start status of the game and reset it once the replay button is hit
 function init() {
     //select random player to go first:
+
     playersTurn = PLAYERS[Math.floor(Math.random() * PLAYERS.length)];
     
     //==== core - initial scores will equal 0
@@ -70,16 +77,19 @@ function init() {
         playerB: 0
     }
 
-    //==== each mancala will start at 0 stones
-    for (i=0; i < MANCALA.length; i++){
-        MANCALA[i] = 0; // sets initial # of stones per mancala to 4
-    }
+    // //==== each mancala will start at 0 stones
+    // for (i=0; i < MANCALA.length; i++){
+    //     MANCALA[i] = 0; // sets initial # of stones per mancala to 4
+    // }
 
     //==== each pocket A1-A6 and B1-B6 will hold 4 stones
     for (i=0; i < POCKETS.length; i++){
         POCKETS[i] = 4; 
     }
-
+    // updating the mancalas to 0
+    POCKETS[6]= 0;
+    POCKETS[13] = 0;
+    
     render();
 }
 
@@ -98,38 +108,35 @@ function handleMove(e) {
     if (e.target.tagName !== 'BUTTON') { 
         return;
     }
+
+    // assigns the id of the event target which will be used as the index in the array
     i = e.target.id
-    stones = POCKETS[i]
-    POCKETS[i] = 0;
-    i++
     
+    // assigns stones to the number of stones in the pocket selected
+    stones = POCKETS[i]
+
+    // // updates the current pocket to zero
+    POCKETS[i] = 0;
+    
+    // updates the index so that we can move to the next pocket
+    i++;
+    
+    // loops through the POCKETS array adding stones to each pocket until there are
+    // no stones left
     for (stones; stones > 0; stones--) {
         if (i < POCKETS.length) {
             POCKETS[i]++
             console.log(POCKETS[i])
             i++
         } else {
-            i = 0; // resets i once we get to the end of the array
+            i = 0; // resets index to 0 once we get to the end of the array
         }
     }
-    
-    // using button ID as index
-
-      
     console.log(POCKETS);
-
-    
-    // check if chosenPocket = POCKETS and return the index
-
-    // get the number of stones from that pocket
-    
-    // start moving stones from that pocket through the next pockets until 
-    // the number of stones being moved = 0
-
-
     changePlayer();
     render();
 }
+
 
 function changePlayer () {
     // after each turn - this function changes the player
