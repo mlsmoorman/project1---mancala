@@ -20,11 +20,17 @@ const MANCALA = [
     "Mancala-B"
 ]
 
+const PLAYERS = [
+    "PlayerA",
+    "PlayerB"
+]
+
 /*---------------------------*/
 /*----- STATE VARIABLES -----*/
 /*---------------------------*/
-// let scores;
-// let stones;
+let playersTurn;
+let scores;
+let stones;
 
 /*----------------------------*/                    
 /*----- CACHED ELEMENTS  -----*/
@@ -48,32 +54,47 @@ pocketsBtn.addEventListener('click', handleMove) // logs which button is clicked
 /*----- CONTROLLER FUNCTIONS DEFINITIONS -----*/
 /*--------------------------------------------*/
 init ();
-//==== function init - set the start page of the game and reset it once the replay button is hit
-//==== --   score - initial scores will equal 0
+
+//==== function init - set the start status of the game and reset it once the replay button is hit
 function init() {
+    //select random player to go first:
+    playersTurn = PLAYERS[Math.floor(Math.random() * PLAYERS.length)];
+    console.log(playersTurn) // confirm working
+    
+    //==== core - initial scores will equal 0
     scores = { // scores object has 1 property for each player
         PlayerA: 0,
         PlayerB: 0
     }
+
+    //==== each mancala will start at 0 stones
     for (i=0; i < MANCALA.length; i++){
         MANCALA[i] = 0; // sets initial # of stones per mancala to 4
-        console.log(MANCALA[i]) // check working
+        console.log(MANCALA[i]) // confirm working
     }
+
+    //==== each pocket A1-A6 and B1-B6 will hold 4 stones
     for (i=0; i < POCKETS.length; i++){
-        POCKETS[i] = 4; // sets initial # of stones per pocket to 4
-        console.log(POCKETS[i]) // check working
+        POCKETS[i] = 4; 
+        console.log(POCKETS[i]) // confirm working
     }
+
+    render();
 }
 
-
-//==== --   each pocket A1-A6 and B1-B6 will hold 4 stones
-//==== --   each mancala will start at 0 stones
+function render() {
+    console.log('function render to be completed once gameplay works')
+}
 
 //==== function render - change the look of the screen moving stones from one pocket to the next pockets 
 //==== updates the player's score based on how many stones are in the player's mancala and 
 //==== update the screen to show who's turn it is
 
 function handleMove(e) {
+    // ensure nothing happens unless a pocket is selected
+    if (e.target.tagName !== 'BUTTON') { 
+        return;
+    }
     console.log(e.target.tagName);
     const chosenPocket = e.target.innerText;
     console.log(chosenPocket)
