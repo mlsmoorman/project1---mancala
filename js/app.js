@@ -33,6 +33,7 @@ const PLAYERS = [
 /*---------------------------*/
 let playersTurn;
 let scores;
+let pocketTotals;
 let stones;
 let replay;
 
@@ -76,16 +77,20 @@ function init() {
         playerA: 0,
         playerB: 0
     }
-
+    
     //==== each pocket will hold 4 stones
     for (i=0; i < POCKETS.length; i++){
         POCKETS[i] = 4; 
     }
-
+    
     // updating the mancalas from 4 to 0
     POCKETS[6]= 0;
     POCKETS[13] = 0;
     
+    //=== pocketTotal initializes to 24 each:
+    pocketTotal();
+    
+    console.log(pocketTotals)
     render();
 }
 
@@ -139,8 +144,10 @@ function handleMove(e) {
     }
     console.log(POCKETS); 
     playerScores(POCKETS[6], POCKETS[13]);
+    pocketTotal();
+    console.log(pocketTotals)
+    console.log(checkEndGame());
     let finalPocket = i-1;
-    console.log(finalPocket)
     if (playersTurn === 'A'  && finalPocket === 6){
         return;
     } else if (playersTurn === 'B' && finalPocket === 13) {
@@ -166,10 +173,35 @@ function changePlayer () {
     }
 }
 
-function endGame() {
-    let playerAArr;
-    let playerBArr;
-    
+function pocketTotal() {
+    let playerAPocketTotal = 0;
+    let playerBPocketTotal = 0;
+    // Need to add playerA pockets and playerB pockets:
+    for (x=0; x < POCKETS.length; x++) {
+        if (x < 6) {
+            playerAPocketTotal += POCKETS[x];
+        } else if (x > 6 && x < 13) {
+            playerBPocketTotal += POCKETS[x];
+        } else {
+        }
+    }
+    pocketTotals = {
+        playerA: playerAPocketTotal,
+        playerB: playerBPocketTotal
+    }
+
+}
+
+function checkEndGame() {
+    if (pocketTotals.playerA === 0 || pocketTotals.playerB === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function tallyFinalScores() {
+    scores.playerA
 }
 
 function replayGame (e) {
