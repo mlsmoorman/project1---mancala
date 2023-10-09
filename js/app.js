@@ -110,24 +110,31 @@ function handleMove(e) {
     }
 
     // assigns the id of the event target which will be used as the index in the array
-    i = e.target.id
-    
     // assigns stones to the number of stones in the pocket selected
-    stones = POCKETS[i]
-
-    // // updates the current pocket to zero
-    POCKETS[i] = 0;
-    
+    // updates the current pocket to zero
     // updates the index so that we can move to the next pocket
+    i = e.target.id
+    stones = POCKETS[i]
+    POCKETS[i] = 0;
     i++;
     
     // loops through the POCKETS array adding stones to each pocket until there are
     // no stones left
     for (stones; stones > 0; stones--) {
         if (i < POCKETS.length) {
+            // check which player's turn it is and check if we're in the opponent's mancala so it
+            //can be skipped
+            if (playersTurn === 'A' && i === 13) {
+                i++;
+                stones++;
+            } else if (playersTurn === 'B' && i === 6) {
+                i++;
+                stones++;
+            } else {
             POCKETS[i]++
             console.log(POCKETS[i])
             i++
+            }
         } else {
             i = 0; // resets index to 0 once we get to the end of the array
         }
