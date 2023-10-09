@@ -167,6 +167,7 @@ function handleMove(e) {
             POCKETS[i]++;
             console.log(POCKETS[i]);
             i++;
+            console.log(i)
             }
         } else {
             i = 0; // resets index to 0 once we get to the end of the array
@@ -198,6 +199,7 @@ function playerScores(scoreA, scoreB) {
     //==== function playerScores - this will count the number of stones in each mancala and update the scores
      scores.playerA = scoreA;
      scores.playerB = scoreB ;
+     render();
 }
 
 function changePlayer () {
@@ -207,6 +209,7 @@ function changePlayer () {
     } else {
         playersTurn = 'A'
     }
+    render();
 }
 
 // function pocketTotal - gathers all pockes for player A and player B and generates a total that
@@ -238,11 +241,14 @@ function checkEndGame() {
     } else {
         return false;
     }
+    render();
 }
 
 function tallyFinalScores() {
     scores.playerA = scores.playerA + pocketTotals.playerA;
     scores.playerB = scores.playerB + pocketTotals.playerB;
+    
+    /// *********** TOMORROW!!!  Need to remove all stones from remaining pockets once scores are tallied **********
     render();
 }
 
@@ -254,6 +260,7 @@ function checkWinner() {
     } else {
         console.log(`IT'S A TIE`)
     }
+    render()
 }
 
 function replayGame (e) {
