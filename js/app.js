@@ -77,16 +77,12 @@ function init() {
         playerB: 0
     }
 
-    // //==== each mancala will start at 0 stones
-    // for (i=0; i < MANCALA.length; i++){
-    //     MANCALA[i] = 0; // sets initial # of stones per mancala to 4
-    // }
-
-    //==== each pocket A1-A6 and B1-B6 will hold 4 stones
+    //==== each pocket will hold 4 stones
     for (i=0; i < POCKETS.length; i++){
         POCKETS[i] = 4; 
     }
-    // updating the mancalas to 0
+
+    // updating the mancalas from 4 to 0
     POCKETS[6]= 0;
     POCKETS[13] = 0;
     
@@ -99,6 +95,8 @@ function render() {
 
     //==== update the screen to show who's turn it is
     playersEl.innerText = `It's Player ${playersTurn}'s Turn!`;
+
+    //=== update the player's scores
     scoreAEl.innerText = scores.playerA;
     scoreBEl.innerText = scores.playerB;
 }
@@ -113,8 +111,8 @@ function handleMove(e) {
     // assigns stones to the number of stones in the pocket selected
     // updates the current pocket to zero
     // updates the index so that we can move to the next pocket
-    i = e.target.id
-    stones = POCKETS[i]
+    i = e.target.id;
+    stones = POCKETS[i];
     POCKETS[i] = 0;
     i++;
     
@@ -123,27 +121,40 @@ function handleMove(e) {
     for (stones; stones > 0; stones--) {
         if (i < POCKETS.length) {
             // check which player's turn it is and check if we're in the opponent's mancala so it
-            //can be skipped
+            //can be skipped otherwise keep disbursing stones
             if (playersTurn === 'A' && i === 13) {
-                i++;
-                stones++;
+                i++; // moves to the next pocket
+                stones++; // resets stones
             } else if (playersTurn === 'B' && i === 6) {
-                i++;
-                stones++;
+                i++; // moes to the next pocket
+                stones++; // resets stones
             } else {
-            POCKETS[i]++
-            console.log(POCKETS[i])
-            i++
+            POCKETS[i]++;
+            console.log(POCKETS[i]);
+            i++;
             }
         } else {
             i = 0; // resets index to 0 once we get to the end of the array
         }
     }
-    console.log(POCKETS);
-    changePlayer();
+    console.log(POCKETS); 
+    playerScores(POCKETS[6], POCKETS[13]);
+    console.log(i)
+    if (playersTurn === 'A'  && i === 6){
+        return;
+    } else if (playersTurn === 'B' && i === 13) {
+        return;
+    } else {
+        changePlayer();
+    }
     render();
 }
 
+function playerScores(scoreA, scoreB) {
+    //==== function playerScores - this will count the number of stones in each mancala and update the scores
+     scores.playerA = scoreA;
+     scores.playerB = scoreB ;
+}
 
 function changePlayer () {
     // after each turn - this function changes the player
@@ -154,9 +165,16 @@ function changePlayer () {
     }
 }
 
+function endGame() {
+    let playerAArr;
+    let playerBArr;
+    
+}
+
 function replayGame (e) {
     init();
 }
+
 
 //==== function handleChoice - will change the count of stones in the subsequent pockets once choice is made
 //==== will call playerSelect to tell the computer to skip over the oposing player's mancala if applicable
@@ -168,5 +186,3 @@ function replayGame (e) {
 //==== function checkEmpty - this will need to keep track of each side A vs. B and check for if A1-A6
 //==== and B1-B6 are empty and if true, it will need to end the game, empty out the opposing side into that
 //==== player's mancala and call scores
-
-//==== function scores - this will count the number of stones in each mancala and update the scores
