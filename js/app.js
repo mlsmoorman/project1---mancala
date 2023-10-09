@@ -139,10 +139,11 @@ function handleMove(e) {
     }
     console.log(POCKETS); 
     playerScores(POCKETS[6], POCKETS[13]);
-    console.log(i)
-    if (playersTurn === 'A'  && i === 6){
+    let finalPocket = i-1;
+    console.log(finalPocket)
+    if (playersTurn === 'A'  && finalPocket === 6){
         return;
-    } else if (playersTurn === 'B' && i === 13) {
+    } else if (playersTurn === 'B' && finalPocket === 13) {
         return;
     } else {
         changePlayer();
