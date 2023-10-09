@@ -147,13 +147,19 @@ function handleMove(e) {
     pocketTotal();
     console.log(pocketTotals)
     console.log(checkEndGame());
-    let finalPocket = i-1;
-    if (playersTurn === 'A'  && finalPocket === 6){
-        return;
-    } else if (playersTurn === 'B' && finalPocket === 13) {
-        return;
+    if (checkEndGame()) {
+        console.log('GAME OVER!!!')
+        tallyFinalScores();
+        checkWinner();
     } else {
-        changePlayer();
+        let finalPocket = i-1;
+        if (playersTurn === 'A'  && finalPocket === 6){
+            return;
+        } else if (playersTurn === 'B' && finalPocket === 13) {
+            return;
+        } else {
+            changePlayer();
+        }
     }
     render();
 }
@@ -173,6 +179,8 @@ function changePlayer () {
     }
 }
 
+// function pocketTotal - gathers all pockes for player A and player B and generates a total that
+// is assigned to the pocketTotals array
 function pocketTotal() {
     let playerAPocketTotal = 0;
     let playerBPocketTotal = 0;
@@ -192,6 +200,8 @@ function pocketTotal() {
 
 }
 
+// function checkEndGame - checks to see if either of the objects within pocketTotals is equal to
+// zero - this ends the game because one players side is empty
 function checkEndGame() {
     if (pocketTotals.playerA === 0 || pocketTotals.playerB === 0) {
         return true;
@@ -201,7 +211,19 @@ function checkEndGame() {
 }
 
 function tallyFinalScores() {
-    scores.playerA
+    scores.playerA = scores.playerA + pocketTotals.playerA;
+    scores.playerB = scores.playerB + pocketTotals.playerB;
+    render();
+}
+
+function checkWinner() {
+    if (scores.playerA > scores.playerB) {
+        console.log(`Player A WINS!!!`)
+    } else if (scores.playerB > scores.playerA) {
+        console.log(`Player B WINS!!!`)
+    } else {
+        console.log(`IT'S A TIE`)
+    }
 }
 
 function replayGame (e) {
