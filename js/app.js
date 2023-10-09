@@ -49,7 +49,19 @@ const scoreAEl = document.querySelector('#scoreA'); // cache player A's score
 const scoreBEl = document.querySelector('#scoreB'); // cache player B's score
 const replayEl = document.querySelector('footer');  // cache the replay element
 
-
+//=== cached pockets
+let pocketA1El = document.querySelector('#a-one');
+let pocketA2El = document.querySelector('#a-two');
+let pocketA3El = document.querySelector('#a-three');
+let pocketA4El = document.querySelector('#a-four');
+let pocketA5El = document.querySelector('#a-five');
+let pocketA6El = document.querySelector('#a-six');
+let pocketB1El = document.querySelector('#b-one');
+let pocketB2El = document.querySelector('#b-two');
+let pocketB3El = document.querySelector('#b-three');
+let pocketB4El = document.querySelector('#b-four');
+let pocketB5El = document.querySelector('#b-five');
+let pocketB6El = document.querySelector('#b-six');
 
 /*---------------------------*/
 /*----- EVENT LISTENERS -----*/
@@ -58,8 +70,6 @@ const replayEl = document.querySelector('footer');  // cache the replay element
 //==== will tell the stones to move from the current pocket to the next pockets
 pocketsBtn.addEventListener('click', handleMove); // logs which button is clicked
 replayEl.addEventListener('click', replayGame);
-
-
 
 /*--------------------------------------------*/
 /*----- CONTROLLER FUNCTIONS DEFINITIONS -----*/
@@ -104,6 +114,26 @@ function render() {
     //=== update the player's scores
     scoreAEl.innerText = scores.playerA;
     scoreBEl.innerText = scores.playerB;
+
+    // === keeps each pocket updated with the number of stones
+    renderButtons();
+
+}
+
+function renderButtons() {
+    pocketA1El.innerText = POCKETS[0];
+    pocketA2El.innerText = POCKETS[1];
+    pocketA3El.innerText = POCKETS[2];
+    pocketA4El.innerText = POCKETS[3];
+    pocketA5El.innerText = POCKETS[4];
+    pocketA6El.innerText = POCKETS[5];
+    pocketB1El.innerText = POCKETS[7];
+    pocketB2El.innerText = POCKETS[8];
+    pocketB3El.innerText = POCKETS[9];
+    pocketB4El.innerText = POCKETS[10];
+    pocketB5El.innerText = POCKETS[11];
+    pocketB6El.innerText = POCKETS[12];
+    
 }
 
 function handleMove(e) {
@@ -131,7 +161,7 @@ function handleMove(e) {
                 i++; // moves to the next pocket
                 stones++; // resets stones
             } else if (playersTurn === 'B' && i === 6) {
-                i++; // moes to the next pocket
+                i++; // moves to the next pocket
                 stones++; // resets stones
             } else {
             POCKETS[i]++;
@@ -153,7 +183,7 @@ function handleMove(e) {
         checkWinner();
     } else {
         let finalPocket = i-1;
-        if (playersTurn === 'A'  && finalPocket === 6){
+        if (playersTurn === 'A'  && finalPocket === 6) {
             return;
         } else if (playersTurn === 'B' && finalPocket === 13) {
             return;

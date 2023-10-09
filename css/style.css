@@ -15,16 +15,17 @@ body {
     align-items: center;  /* opposite - horizontal */
 }
 
+/* ===== Title "MANCALA" ===== */
 header {
     font-size: 10vmin;
     color: purple;
     letter-spacing: 2vmin;
 }
 
-h3 {
+/* h3 {
     color: goldenrod;
     font-size: 3vmin;
-}
+} */
 
 #markers-top {
     display: grid;
@@ -57,48 +58,134 @@ h3 {
 
 #pockets {
     display: grid;
+    background-color: thistle;
     grid-template-columns: repeat(8, 10vmin);
-    grid-template-rows: repeat(2, 10vmin);
+    grid-template-rows: repeat(4, 10vmin);
     gap: 1vmin;
 }
 
-#pockets > div.six {
+#pockets > div.mancala-A {
     font-size: 1.5vmin;
     grid-column-start: 1;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-start: -5;
+    grid-row-end: -4;
 }
 
-#pockets > div.thirteen {
+#pockets > div.mancala-B {
     font-size: 1.5vmin;
     grid-column-start: 8;
     grid-column-end: 9;
-    grid-row-start: -3;
-    grid-row-end: -2;
+    grid-row-start: -5;
+    grid-row-end: -4;
 }
 
 #pockets > button {
     border-radius: 50%;
     gap: 1vmin;
-    border: 0.1vmin solid grey;
+    border: 0.5vmin solid grey;
 }
 
 #pockets > h5.scoreA {
     grid-column-start: 1;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
 }
 
 #pockets > h5.scoreB {
     grid-column-start: 8;
-    grid-row-start: -2;
-    grid-row-end: -1
+    grid-column-end: 9;
+    grid-row-start: -4;
+    grid-row-end: -3;
 }
 
-#pockets > button.player2-start {
+/*====== placement of all of the buttons in the appropriate grid location  ====== */
+
+#pockets > button.button-A1 {
     grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+#pockets > button.button-A2 {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+#pockets > button.button-A3 {
+    grid-column-start: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+#pockets > button.button-A4 {
+    grid-column-start: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+#pockets > button.button-A5 {
+    grid-column-start: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+#pockets > button.button-A6 {
+    grid-column-start: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
 }
 
+#pockets > button.button-B1 {
+    grid-column-start: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+}
+#pockets > button.button-B2 {
+    grid-column-start: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+}
+#pockets > button.button-B3 {
+    grid-column-start: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+}
+#pockets > button.button-B4 {
+    grid-column-start: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+}
+#pockets > button.button-B5 {
+    grid-column-start: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+}
+#pockets > button.button-B6 {
+    grid-column-start: 7;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+}
+
+/* ===== Adding the total stones per pocket into their correct place on the grid ===== */
+#pockets > ul.totalsA {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#pockets > ul.totalsB {
+    grid-column-start: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
 
 button:hover {
     color: white;
