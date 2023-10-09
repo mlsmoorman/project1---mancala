@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Shojumaru', sans-serif;
-    font-size: 22px;
+    /* font-size: 22px; */
 /*      viewport units: 50vh (viewport height-50%), vw (viewport width), 
         50vmin (smallest between vh and vw and takes 50% of that)  */
     height: 100vh;
@@ -59,7 +59,22 @@ h3 {
     display: grid;
     grid-template-columns: repeat(8, 10vmin);
     grid-template-rows: repeat(2, 10vmin);
-    gap: 1vim;
+    gap: 1vmin;
+}
+
+#pockets > div.six {
+    font-size: 1.5vmin;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#pockets > div.thirteen {
+    font-size: 1.5vmin;
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row-start: -3;
+    grid-row-end: -2;
 }
 
 #pockets > button {
@@ -67,6 +82,23 @@ h3 {
     gap: 1vmin;
     border: 0.1vmin solid grey;
 }
+
+#pockets > h5.scoreA {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#pockets > h5.scoreB {
+    grid-column-start: 8;
+    grid-row-start: -2;
+    grid-row-end: -1
+}
+
+#pockets > button.player2-start {
+    grid-column-start: 2;
+}
+
 
 button:hover {
     color: white;
