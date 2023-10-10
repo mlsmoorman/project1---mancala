@@ -4,7 +4,6 @@
 
 body {
     font-family: 'Shojumaru', sans-serif;
-    /* font-size: 22px; */
 /*      viewport units: 50vh (viewport height-50%), vw (viewport width), 
         50vmin (smallest between vh and vw and takes 50% of that)  */
     height: 100vh;
@@ -13,7 +12,9 @@ body {
     flex-direction: column;
     justify-content: center; /* main axis - vertical */
     align-items: center;  /* opposite - horizontal */
-}
+ }
+
+
 
 /* ===== Title "MANCALA" ===== */
 header {
@@ -22,21 +23,18 @@ header {
     letter-spacing: 2vmin;
 }
 
-/* h3 {
-    color: goldenrod;
-    font-size: 3vmin;
-} */
+
 
 #markers-top {
     display: grid;
     grid-template-columns: repeat(7, 10vmin);  
     gap: 1vmin;
-    margin-top: 1.5vmin;
+    margin-top: 0.5vmin;
 }
 
 #markers-top > div {
     height: 5vmin;
-    border-width: 2.5vmin;
+    border-width: 1.5vmin;
     border-style: solid;
     border-color: lightcoral transparent transparent;
 }
@@ -45,15 +43,23 @@ header {
     display: grid;
     grid-template-columns: repeat(7, 10vmin);  
     gap: 1vmin;
-    margin-top: 1.5vmin;
+    margin-top: 0.5vmin;
 }
 
 #markers-bottom > div {
-    height: 10vmin;
-    border-width: 2.5vmin;
+    height: 5vmin;
+    border-width: 1.5vmin;
     border-style: solid;
     border-color: transparent transparent lightcoral;
+    
+}
 
+footer {
+    border-width: 1vmin;
+    border-style: solid;
+    border-color: lightblue;
+    margin-top: 1.5vmin;
+    margin-bottom: 0;
 }
 
 #pockets {
@@ -84,6 +90,17 @@ header {
     gap: 1vmin;
     border: 0.5vmin solid grey;
 }
+
+/* MARBLES */
+/* #pockets > p.images {
+    border-radius: 1vmin;
+    position: relative;
+    z-index: 1;
+    height: 1vmin;
+    width: 1vmin;
+    margin-bottom: 1vmin;
+    margin-top: 1vmin;
+} */
 
 #pockets > h5.scoreA {
     grid-column-start: 1;
@@ -247,3 +264,5 @@ button:hover {
     color: white;
     background-color: purple;
 }
+
+
