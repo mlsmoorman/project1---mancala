@@ -103,7 +103,7 @@ function init() {
 
     getWinner = 'A';//=== starts winner as player A
     
-    console.log(pocketTotals) //=== checks if working
+
     render();
 }
 
@@ -162,17 +162,15 @@ function handleMove(e) {
                 stones++;   // resets stones
             } else {
             POCKETS[i]++;
-            console.log(POCKETS[i]);
             i++;
-            console.log(i)
             }
         } else {
             i = 0; // resets index to 0 once we get to the end of the array
         }
     }
+    captureCheck(i);
     playerScores(POCKETS[6], POCKETS[13]); //=== assigns playerScores to the mancala pockets
     pocketTotal(); //=== runs function to determine total stones in each sides pockets
-    
     if (checkEndGame()) {  //=== proceeds with tallyFinalScores and getWinner if game over
         console.log('GAME OVER!!!')
         tallyFinalScores();
@@ -190,6 +188,10 @@ function handleMove(e) {
     render(); //=== calls render to update the screen prior to the next move/click
 }
 
+function captureCheck(idx) {
+    console.log(idx)
+    
+}
 
 function playerScores(scoreA, scoreB) {
     //==== function playerScores - this will count the number of stones in each mancala and update the scores
