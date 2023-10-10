@@ -4,6 +4,7 @@
 
 body {
     font-family: 'Shojumaru', sans-serif;
+    text-align: center;
 /*      viewport units: 50vh (viewport height-50%), vw (viewport width), 
         50vmin (smallest between vh and vw and takes 50% of that)  */
     height: 100vh;
@@ -23,8 +24,11 @@ header {
     letter-spacing: 2vmin;
 }
 
+p {
+    font-size: 3vmin
+}
 
-
+/* ===== Screen Decorations top/bottom ===== */
 #markers-top {
     display: grid;
     grid-template-columns: repeat(7, 10vmin);  
@@ -54,6 +58,7 @@ header {
     
 }
 
+/* ===== replay button =====*/
 footer {
     border-width: 1vmin;
     border-style: solid;
@@ -62,6 +67,7 @@ footer {
     margin-bottom: 0;
 }
 
+/*===== game board =====*/
 #pockets {
     display: grid;
     background-color: thistle;
@@ -81,48 +87,61 @@ footer {
     font-size: 1.5vmin;
     grid-column-start: 8;
     grid-column-end: 9;
-    grid-row-start: -5;
-    grid-row-end: -4;
+    grid-row-start: -2;
+    grid-row-end: -1;
 }
 
 #pockets > button {
-    border-radius: 50%;
-    gap: 1vmin;
-    border: 0.5vmin solid grey;
+    border-radius: 25%;
+    margin: 2vmin;
+    border: 0.5vmin solid teal;
 }
 
-/* MARBLES */
-/* #pockets > p.images {
-    border-radius: 1vmin;
-    position: relative;
-    z-index: 1;
-    height: 1vmin;
-    width: 1vmin;
-    margin-bottom: 1vmin;
-    margin-top: 1vmin;
-} */
+#pockets > button.ul {
+    border-width: 1vmin;
+    border-color: solid red;
+}
 
 #pockets > h5.scoreA {
     grid-column-start: 1;
-    grid-row-start: 3;
+    grid-row-start: 2;
     grid-row-end: 4;
+    
 }
 
 #pockets > h5.scoreB {
     grid-column-start: 8;
     grid-column-end: 9;
     grid-row-start: -4;
-    grid-row-end: -3;
+    grid-row-end: -2;
 }
+
+.stack {
+    display: grid;
+    grid-area: 2/2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-self: center;
+    justify-self: center;;
+    /* overflow: hidden; */
+}
+
+.stack * {
+    grid-area: 1 / 2;
+}
+
 
 /*====== placement of all of the buttons in the appropriate grid location  ====== */
 
-#pockets > button.button-A1 {
+/* #pockets > button.button-A1 {
     grid-column-start: 7;
     grid-row-start: 1;
     grid-row-end: 2;
 
 }
+
 #pockets > button.button-A2 {
     grid-column-start: 6;
     grid-row-start: 1;
@@ -189,76 +208,76 @@ footer {
     grid-row-start: 4;
     grid-row-end: 5;
 
-}
+} */
 
 /* ===== Adding the total stones per pocket into their correct place on the grid ===== */
-#pockets > ul.a-one {
+/* #pockets > div.a-one {
     grid-column-start: 7;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 
-#pockets > ul.a-two {
+#pockets > div.a-two {
     grid-column-start: 6;
     grid-row-start: 2;
     grid-row-end: 3;
 }
-#pockets > ul.a-three {
+#pockets > div.a-three {
     grid-column-start: 5;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 
-#pockets > ul.a-four {
+#pockets > div.a-four {
     grid-column-start: 4;
     grid-row-start: 2;
     grid-row-end: 3;
 }
-#pockets > ul.a-five {
+#pockets > div.a-five {
     grid-column-start: 3;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 
-#pockets > ul.a-six {
+#pockets > div.a-six {
     grid-column-start: 2;
     grid-row-start: 2;
     grid-row-end: 3;
 }
-#pockets > ul.b-one {
+#pockets > div.b-one {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
 }
 
-#pockets > ul.b-two {
+#pockets > div.b-two {
     grid-column-start: 3;
     grid-row-start: 3;
     grid-row-end: 4;
 }
-#pockets > ul.b-three {
+#pockets > div.b-three {
     grid-column-start: 4;
     grid-row-start: 3;
     grid-row-end: 4;
 }
 
-#pockets > ul.b-four {
+#pockets > div.b-four {
     grid-column-start: 5;
     grid-row-start: 3;
     grid-row-end: 4;
 }
-#pockets > ul.b-five {
+#pockets > div.b-five {
     grid-column-start: 6;
     grid-row-start: 3;
     grid-row-end: 4;
 }
 
-#pockets > ul.b-six {
+#pockets > div.b-six {
     grid-column-start: 7;
     grid-row-start: 3;
     grid-row-end: 4;
-}
+} */
 
 button:hover {
     color: white;

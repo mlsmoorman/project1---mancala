@@ -18,6 +18,10 @@ const POCKETS = [
     "Mancala-B"
 ]
 
+// const MARBLES = [
+
+// ]
+
 // const MANCALA = [
 //     "Mancala-A",
 //     "Mancala-B"
@@ -50,7 +54,7 @@ const scoreAEl = document.querySelector('#scoreA'); // cache player A's score
 const scoreBEl = document.querySelector('#scoreB'); // cache player B's score
 const winnerEl = document.querySelector('#winner'); // cache winner
 const replayEl = document.querySelector('footer');  // cache the replay element
-
+const stonePieceEl = document.querySelector('#image-container')
 
 //=== cached pockets
 const pocketA1El = document.querySelector('#a-one');
@@ -108,11 +112,11 @@ function render() {
     playersEl.innerText = `It's Player ${playersTurn}'s Turn!`; //==== update the screen to show who's turn it is
     scoreAEl.innerText = scores.playerA; //=== update the player's scores
     scoreBEl.innerText = scores.playerB;
-    renderButtons(); //=== keeps each pocket updated with the number of stones
+    renderStones(); //=== keeps each pocket updated with the number of stones
     renderWinner();  //=== checks for winner and shows winner on screen removing player's turn 
 }
 
-function renderButtons() {
+function renderStones() {
     //=== updates all pockets on screen to show their current number of stones
     pocketA1El.innerText = POCKETS[0];
     pocketA2El.innerText = POCKETS[1];
@@ -130,7 +134,7 @@ function renderButtons() {
 
 function renderWinner() {
     if (checkEndGame()) {
-        winnerEl.innerText = `The winner is player ${getWinner}`;
+        winnerEl.innerText = `Congratulations player ${getWinner}!!  YOU WIN!!`;
         playersEl.innerText = ``
         
     } else {
@@ -166,11 +170,9 @@ function handleMove(e) {
             i = 0; // resets index to 0 once we get to the end of the array
         }
     }
-    console.log(POCKETS); //=== checks to see if all is working
     playerScores(POCKETS[6], POCKETS[13]); //=== assigns playerScores to the mancala pockets
     pocketTotal(); //=== runs function to determine total stones in each sides pockets
-    console.log(pocketTotals)  //=== checks to see if all is working
-    console.log(checkEndGame()); //=== checks to see if endgame is returning true/false accurately
+    
     if (checkEndGame()) {  //=== proceeds with tallyFinalScores and getWinner if game over
         console.log('GAME OVER!!!')
         tallyFinalScores();
