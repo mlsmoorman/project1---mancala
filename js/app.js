@@ -194,6 +194,7 @@ function handleMove(e) {
             changePlayer(); //=== otherwise changes the player
         }
     }
+    console.log(POCKETS)
     render(); //=== calls render to update the screen prior to the next move/click
 }
 
