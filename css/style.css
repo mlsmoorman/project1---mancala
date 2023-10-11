@@ -75,6 +75,15 @@ footer {
     grid-template-rows: repeat(4, 10vmin);
     gap: 1vmin;
 }
+#pockets > div.sideA {
+    display: flex;
+    flex: 7;
+    flex-direction: column;
+
+    /* grid-column-start: 2;
+    grid-row-start: 2;
+    direction: rtl; */
+}
 
 #pockets > div.mancala-A {
     font-size: 1.5vmin;
@@ -97,29 +106,15 @@ footer {
     border: 0.5vmin solid teal;
 }
 
-#pockets > button.ul {
-    border-width: 1vmin;
-    border-color: solid red;
-}
-
-#pockets > h5.scoreA {
-    grid-column-start: 1;
-    grid-row-start: 2;
-    grid-row-end: 4;
-    
-}
-
-#pockets > h5.scoreB {
-    grid-column-start: 8;
-    grid-column-end: 9;
-    grid-row-start: -4;
-    grid-row-end: -2;
-}
-
 #pockets * {
     border: 4px solid rgb(179, 146, 240);
+    border-radius: 24%;
     background-size:cover;
     background-repeat: no-repeat;
+}
+
+#space {
+    border: 0px;
 }
 
 button:hover {
@@ -127,151 +122,8 @@ button:hover {
     background-color: purple;
 }
 
-/*====== placement of all of the buttons in the appropriate grid location  ====== */
 
-/* #pockets > button.button-A1 {
-    grid-column-start: 7;
-    grid-row-start: 1;
-    grid-row-end: 2;
 
-}
-
-#pockets > button.button-A2 {
-    grid-column-start: 6;
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-}
-#pockets > button.button-A3 {
-    grid-column-start: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-}
-#pockets > button.button-A4 {
-    grid-column-start: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-}
-#pockets > button.button-A5 {
-    grid-column-start: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-}
-#pockets > button.button-A6 {
-    grid-column-start: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-}
-
-#pockets > button.button-B1 {
-    grid-column-start: 2;
-    grid-row-start: 4;
-    grid-row-end: 5;
-
-}
-#pockets > button.button-B2 {
-    grid-column-start: 3;
-    grid-row-start: 4;
-    grid-row-end: 5;
-
-}
-#pockets > button.button-B3 {
-    grid-column-start: 4;
-    grid-row-start: 4;
-    grid-row-end: 5;
-
-}
-#pockets > button.button-B4 {
-    grid-column-start: 5;
-    grid-row-start: 4;
-    grid-row-end: 5;
-
-}
-#pockets > button.button-B5 {
-    grid-column-start: 6;
-    grid-row-start: 4;
-    grid-row-end: 5;
-
-}
-#pockets > button.button-B6 {
-    grid-column-start: 7;
-    grid-row-start: 4;
-    grid-row-end: 5;
-
-} */
-
-/* ===== Adding the total stones per pocket into their correct place on the grid ===== */
-/* #pockets > div.a-one {
-    grid-column-start: 7;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-
-#pockets > div.a-two {
-    grid-column-start: 6;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-#pockets > div.a-three {
-    grid-column-start: 5;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-
-#pockets > div.a-four {
-    grid-column-start: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-#pockets > div.a-five {
-    grid-column-start: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-
-#pockets > div.a-six {
-    grid-column-start: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-#pockets > div.b-one {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-
-#pockets > div.b-two {
-    grid-column-start: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-#pockets > div.b-three {
-    grid-column-start: 4;
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-
-#pockets > div.b-four {
-    grid-column-start: 5;
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-#pockets > div.b-five {
-    grid-column-start: 6;
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-
-#pockets > div.b-six {
-    grid-column-start: 7;
-    grid-row-start: 3;
-    grid-row-end: 4;
-} */
 
 
 
