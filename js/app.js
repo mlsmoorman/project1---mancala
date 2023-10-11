@@ -70,6 +70,8 @@ const pocketB4El = document.querySelector('#b-four');
 const pocketB5El = document.querySelector('#b-five');
 const pocketB6El = document.querySelector('#b-six');
 
+const aTotals = document.querySelectorAll('.totalsA');
+
 /*---------------------------*/
 /*----- EVENT LISTENERS -----*/
 /*---------------------------*/
@@ -118,18 +120,26 @@ function render() {
 
 function renderStones() {
     //=== updates all pockets on screen to show their current number of stones
-    pocketA1El.innerText = POCKETS[0];
-    pocketA2El.innerText = POCKETS[1];
-    pocketA3El.innerText = POCKETS[2];
-    pocketA4El.innerText = POCKETS[3];
-    pocketA5El.innerText = POCKETS[4];
-    pocketA6El.innerText = POCKETS[5];
-    pocketB1El.innerText = POCKETS[7];
-    pocketB2El.innerText = POCKETS[8];
-    pocketB3El.innerText = POCKETS[9];
-    pocketB4El.innerText = POCKETS[10];
-    pocketB5El.innerText = POCKETS[11];
-    pocketB6El.innerText = POCKETS[12]; 
+    pocketA1El.style.backgroundImage = `url(imgs/marbles${POCKETS[0]}.png)`;
+    pocketA2El.style.backgroundImage = `url(imgs/marbles${POCKETS[1]}.png)`;
+    pocketA3El.style.backgroundImage = `url(imgs/marbles${POCKETS[2]}.png)`;
+    pocketA4El.style.backgroundImage = `url(imgs/marbles${POCKETS[3]}.png)`;
+    pocketA5El.style.backgroundImage = `url(imgs/marbles${POCKETS[4]}.png)`;
+    pocketA6El.style.backgroundImage = `url(imgs/marbles${POCKETS[5]}.png)`;
+    pocketB1El.style.backgroundImage = `url(imgs/marbles${POCKETS[7]}.png)`;
+    pocketB2El.style.backgroundImage = `url(imgs/marbles${POCKETS[8]}.png)`;
+    pocketB3El.style.backgroundImage = `url(imgs/marbles${POCKETS[9]}.png)`;
+    pocketB4El.style.backgroundImage = `url(imgs/marbles${POCKETS[10]}.png)`;
+    pocketB5El.style.backgroundImage = `url(imgs/marbles${POCKETS[11]}.png)`;
+    pocketB6El.style.backgroundImage = `url(imgs/marbles${POCKETS[12]}.png)`;
+
+    
+    
+    // console.log(aTotals);
+    // console.log(POCKETS);
+    // aTotals.forEach(function(pocketEl, idx) {
+    //     pocketEl.style.backgroundImage = `url(imgs/marbles${POCKETS[idx]}.png)`;
+    // })
 }
 
 function renderWinner() {
@@ -168,7 +178,6 @@ function handleMove(e) {
             i = 0; // resets index to 0 once we get to the end of the array
         }
     }
-    captureCheck(i);
     playerScores(POCKETS[6], POCKETS[13]); //=== assigns playerScores to the mancala pockets
     pocketTotal(); //=== runs function to determine total stones in each sides pockets
     if (checkEndGame()) {  //=== proceeds with tallyFinalScores and getWinner if game over
@@ -186,11 +195,6 @@ function handleMove(e) {
         }
     }
     render(); //=== calls render to update the screen prior to the next move/click
-}
-
-function captureCheck(idx) {
-    console.log(idx)
-    
 }
 
 function playerScores(scoreA, scoreB) {
