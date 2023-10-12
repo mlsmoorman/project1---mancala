@@ -1,11 +1,10 @@
 # Welcome to the world of Mancala!
 
-#### The word Mancala is derived from an Arabic root meaning "to move".
+* #### The word Mancala is derived from an Arabic root meaning "to move". *
 
 ### History  
 One of the oldest known games to be played today, Mancala has been found in archeological evidence dating back as early as 700AD in East Africa, however, some of the oldest boards date back to approximately 5,780BC in Jordan.
 
-///////////////////////////////
 ### The Game
 
 SetUp:  To start the game board shows an empty Mancala and score of zero assigned to each player along with 6 pockets on each side of the board containing 4 stones -- side A and side B.
@@ -23,29 +22,22 @@ Winning the Game:
   2. The player that still has pieces on their side of the board captures those pieces and they are deposited to that player's Mancala
   3. The player with the most pieces in their Mancala at the end of the game WINS!!!
 
-///////////////////////////////
-
 ### SCREENSHOTS HERE
-
-///////////////////////////////
 
 ### Technologies Used
   MVC Method using:
-  1. HTML - set up the static/unchanging information that is located on the DOM
-      Includes:
+  1. HTML - set up the static/unchanging information that is located on the DOM includes:
       - the Header "Mancala"
       - Mancala for each player
       - Replay box
 
-  2. CSS - set up the appearance of the DOM
-      Includes:
+  2. CSS - set up the appearance of the DOM includes:
       - use of a flex layout for the overall screen
       - incorporates vmin so that all aspects of the game are interactive and change with the screen size
       - used hover to hightlight which button the user has the mouse over
       - used box-shadow to create a glow behind the header and game board
 
-  3. JavaScript - game play
-      Includes:
+  3. JavaScript - game play includes:
       - init function to set the initial values of the game/resets them once replay is hit
       - render function to set the look of the game and change it as game play continues
       - calls 5 sub-functions to update the DOM:
@@ -64,11 +56,8 @@ Winning the Game:
                 - else game play continues by checking if the player landed in their own Mancala to keep
                   the player the same or move on to the next player by calling the changePlayer function
 
-///////////////////////////////
+### PLAY NOW!
 
-### LINK TO DEPLOY GAME HERE
-
-///////////////////////////////
 
 ### Future Updates
 
