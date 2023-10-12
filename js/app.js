@@ -24,30 +24,24 @@ let getWinner;
 //=====  Stones - cache the stones so that they can move from pocket to pocket on the screen
 //=====  Score - cach the player score to update each time a stone lands in a player's Mancala
 //=====  Winner - cache the winner to change the display of who the winner is once game is over
-const pocketsBtn = document.querySelector('#pockets'); // cache player's selection
+const pocketsBtn = document.querySelector('.container'); // cache player's selection
 const playersEl = document.querySelector('#player-turn'); // cache player's turn
 const scoreAEl = document.querySelector('#scoreA'); // cache player A's score
+const scoreMrbEl = document.querySelector('#scoreA')
 const scoreBEl = document.querySelector('#scoreB'); // cache player B's score
 const winnerEl = document.querySelector('#winner'); // cache winner
 const replayEl = document.querySelector('footer');  // cache the replay element
-// const stonePieceEl = document.querySelector('#image-container')
 
 //=== cached pockets
-// const pocketA1El = document.querySelector('#a-one');
-// const pocketA2El = document.querySelector('#a-two');
-// const pocketA3El = document.querySelector('#a-three');
-// const pocketA4El = document.querySelector('#a-four');
-// const pocketA5El = document.querySelector('#a-five');
-// const pocketA6El = document.querySelector('#a-six');
-// const pocketB1El = document.querySelector('#b-one');
-// const pocketB2El = document.querySelector('#b-two');
-// const pocketB3El = document.querySelector('#b-three');
-// const pocketB4El = document.querySelector('#b-four');
-// const pocketB5El = document.querySelector('#b-five');
-// const pocketB6El = document.querySelector('#b-six');
+const pocketA1El = document.querySelector('#A1');
+const pocketA2El = document.querySelector('#A2');
+const pocketA3El = document.querySelector('#A3');
+const pocketA4El = document.querySelector('#A4');
+const pocketA5El = document.querySelector('#A5');
+const pocketA6El = document.querySelector('#A6');
 
-const totals = document.querySelectorAll('.totals');
-// const totalsB = document.querySelectorAll('.totalsB');
+const totalsA = document.querySelectorAll('.totalsA');
+const totalsB = document.querySelectorAll('.totalsB');
 
 /*---------------------------*/
 /*----- EVENT LISTENERS -----*/
@@ -72,15 +66,12 @@ function init() {
         playerB: 0
     }
     
-    // builds the POCKETS with 4 stones each
+    // builds the POCKETS array adding 4 stones each
     for (i=0; i < 14; i++) {
         POCKETS[i] = 4;
     }
 
-    // for (i=0; i < POCKETS.length; i++){  //=== each pocket will hold 4 stones
-    //     POCKETS[i] = 4; 
-    // }
-    // updating the mancala pockets to a starting number of 0
+    // updating the mancala pockets #6 and #13 to a starting number of 0
     POCKETS[6]= 0;  
     POCKETS[13] = 0;
     
@@ -93,8 +84,10 @@ function init() {
 
 //************************************* RENDER ************************************* //
 function render() {
-    playersEl.innerText = `It's Player ${playersTurn}'s Turn!`; //==== update the screen to show who's turn it is
-    scoreAEl.innerText = scores.playerA; //=== update the player's scores
+    //=== update the screen to show who's turn it is
+    playersEl.innerText = `It's Player ${playersTurn}'s Turn!`;
+    //=== update the player's scores
+    scoreAEl.innerText = scores.playerA; 
     scoreBEl.innerText = scores.playerB;
     renderStones(); //=== keeps each pocket updated with the number of stones
     renderWinner();  //=== checks for winner and shows winner on screen removing player's turn 
@@ -102,26 +95,17 @@ function render() {
 
 function renderStones() {
     //=== updates all pockets on screen to show their current number of stones
-    // pocketA1El.style.backgroundImage = `url(imgs/marbles${POCKETS[0]}.png)`;
-    // pocketA2El.style.backgroundImage = `url(imgs/marbles${POCKETS[1]}.png)`;
-    // pocketA3El.style.backgroundImage = `url(imgs/marbles${POCKETS[2]}.png)`;
-    // pocketA4El.style.backgroundImage = `url(imgs/marbles${POCKETS[3]}.png)`;
-    // pocketA5El.style.backgroundImage = `url(imgs/marbles${POCKETS[4]}.png)`;
-    // pocketA6El.style.backgroundImage = `url(imgs/marbles${POCKETS[5]}.png)`;
-    // pocketB1El.style.backgroundImage = `url(imgs/marbles${POCKETS[7]}.png)`;
-    // pocketB2El.style.backgroundImage = `url(imgs/marbles${POCKETS[8]}.png)`;
-    // pocketB3El.style.backgroundImage = `url(imgs/marbles${POCKETS[9]}.png)`;
-    // pocketB4El.style.backgroundImage = `url(imgs/marbles${POCKETS[10]}.png)`;
-    // pocketB5El.style.backgroundImage = `url(imgs/marbles${POCKETS[11]}.png)`;
-    // pocketB6El.style.backgroundImage = `url(imgs/marbles${POCKETS[12]}.png)`;
-    
-    // console.log(totals);
-    // console.log(POCKETS);
+    pocketA1El.style.backgroundImage = `url(imgs/marbles${POCKETS[0]}.png)`;
+    pocketA2El.style.backgroundImage = `url(imgs/marbles${POCKETS[1]}.png)`;
+    pocketA3El.style.backgroundImage = `url(imgs/marbles${POCKETS[2]}.png)`;
+    pocketA4El.style.backgroundImage = `url(imgs/marbles${POCKETS[3]}.png)`;
+    pocketA5El.style.backgroundImage = `url(imgs/marbles${POCKETS[4]}.png)`;
+    pocketA6El.style.backgroundImage = `url(imgs/marbles${POCKETS[5]}.png)`;
+    scoreMrbEl.style.backgroundImage = `url(imgs/marbles${POCKETS[6]}.png)`;
 
-    totals.forEach(function(pocketEl, idx) {
-        pocketEl.style.backgroundImage = `url(imgs/marbles${POCKETS[idx]}.png)`;        
+    totalsB.forEach(function(pocketElB, idx) {
+        pocketElB.style.backgroundImage = `url(imgs/marbles${POCKETS[idx+7]}.png)`;        
     })
-    console.log(totals);    
 }
 
 function renderWinner() {
@@ -156,6 +140,7 @@ function handleMove(e) {
                 stones++;   // resets stones
             } else {
             POCKETS[i]++;
+            // render();
             i++;
             }
         } else {
@@ -239,6 +224,7 @@ function tallyFinalScores() {
 }
 
 function checkWinner() {
+    // checks who's score is highest and returns 'A' 'B' or 'IT'S A TIE'
     if (scores.playerA > scores.playerB) {
         return "A"
     } else if (scores.playerB > scores.playerA) {
@@ -250,6 +236,7 @@ function checkWinner() {
 }
 
 function replayGame (e) {
+    // runs the init function if the replay section is clicked
     init();
 }
 
