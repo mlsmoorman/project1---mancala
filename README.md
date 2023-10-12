@@ -1,5 +1,11 @@
 # project1---mancala
+<<<<<<< HEAD
  
+=======
+
+Welcome to the world of Mancala!                                                                                              
+
+>>>>>>> fe58340dcd47a8e5f6b6b4dd21bb97de02944c65
 The word Mancala is derived from an Arabic root meaning "to move".
 
 History:  One of the oldest known games to be played today, Mancala has been found in archeological evidence dating back as early as 700AD in East Africa, however, some of the oldest boards date back to approximately 5,780BC in Jordan.
