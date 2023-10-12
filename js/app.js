@@ -14,42 +14,27 @@ const PLAYERS = [
 let playersTurn;
 let scores;
 let pocketTotals;
-let stones;
+let marbles;
 let replay;
 let getWinner;
 
 /*----------------------------*/                    
 /*----- CACHED ELEMENTS  -----*/
 /*----------------------------*/
-//=====  Stones - cache the stones so that they can move from pocket to pocket on the screen
-//=====  Score - cach the player score to update each time a stone lands in a player's Mancala
-//=====  Winner - cache the winner to change the display of who the winner is once game is over
 const pocketsBtn = document.querySelector('.container'); // cache player's selection
 const playersEl = document.querySelector('#player-turn'); // cache player's turn
 const scoreAEl = document.querySelector('#scoreA'); // cache player A's score
-const scoreMrbEl = document.querySelector('#scoreA')
 const scoreBEl = document.querySelector('#scoreB'); // cache player B's score
+const totalsA = document.querySelectorAll('.totalsA'); // cache total marbles per pocket for side A
+const totalsB = document.querySelectorAll('.totalsB'); // cache total marbles per pocket for side B
 const winnerEl = document.querySelector('#winner'); // cache winner
 const replayEl = document.querySelector('footer');  // cache the replay element
-
-//=== cached pockets
-const pocketA1El = document.querySelector('#A1');
-const pocketA2El = document.querySelector('#A2');
-const pocketA3El = document.querySelector('#A3');
-const pocketA4El = document.querySelector('#A4');
-const pocketA5El = document.querySelector('#A5');
-const pocketA6El = document.querySelector('#A6');
-
-const totalsA = document.querySelectorAll('.totalsA');
-const totalsB = document.querySelectorAll('.totalsB');
 
 /*---------------------------*/
 /*----- EVENT LISTENERS -----*/
 /*---------------------------*/
-//==== This section will need an event listener for the click that is within each of the pockets which
-//==== will tell the stones to move from the current pocket to the next pockets
 pocketsBtn.addEventListener('click', handleMove); // logs which button is clicked
-replayEl.addEventListener('click', replayGame);
+replayEl.addEventListener('click', replayGame); // listens for player to click the Play Again button
 
 /*--------------------------------------------*/
 /*----- CONTROLLER FUNCTIONS DEFINITIONS -----*/
@@ -66,7 +51,7 @@ function init() {
         playerB: 0
     }
     
-    // builds the POCKETS array adding 4 stones each
+    // builds the POCKETS array adding 4 marbles each
     for (i=0; i < 14; i++) {
         POCKETS[i] = 4;
     }
@@ -89,34 +74,44 @@ function render() {
     //=== update the player's scores
     scoreAEl.innerText = scores.playerA; 
     scoreBEl.innerText = scores.playerB;
-    renderStones(); //=== keeps each pocket updated with the number of stones
+    renderSideA(); //=== keeps each pocket updated with the number of marbles
+    renderSideB();
     renderWinner();  //=== checks for winner and shows winner on screen removing player's turn 
 }
 
-function renderStones() {
-    //=== updates all pockets on screen to show their current number of stones
-    pocketA1El.style.backgroundImage = `url(imgs/marbles${POCKETS[0]}.png)`;
-    pocketA2El.style.backgroundImage = `url(imgs/marbles${POCKETS[1]}.png)`;
-    pocketA3El.style.backgroundImage = `url(imgs/marbles${POCKETS[2]}.png)`;
-    pocketA4El.style.backgroundImage = `url(imgs/marbles${POCKETS[3]}.png)`;
-    pocketA5El.style.backgroundImage = `url(imgs/marbles${POCKETS[4]}.png)`;
-    pocketA6El.style.backgroundImage = `url(imgs/marbles${POCKETS[5]}.png)`;
-    scoreMrbEl.style.backgroundImage = `url(imgs/marbles${POCKETS[6]}.png)`;
+function renderSideA() {
+    //=== updates all pockets on side A on screen to show the total number of marbles per pocket
+    //=== due to the game play of mancala being counter-clockwise, side A needs to be a 
+    //    separate function from side B so that it loops over the array in reverse order
+    let j = 6; 
+    for (let i=0; i<=totalsA.length; i++) {
+        totalsA[i].style.backgroundImage = `url(imgs/marbles${POCKETS[j]}.png)`; 
+        if (j>0) {
+            j--;
+        } else {
+            return;
+        }
+    }
+}
 
+function renderSideB() {
+    //=== updates all pockets on side B on screen to show the total number of marbles per pocket
     totalsB.forEach(function(pocketElB, idx) {
         pocketElB.style.backgroundImage = `url(imgs/marbles${POCKETS[idx+7]}.png)`;        
     })
 }
 
 function renderWinner() {
+    //=== checks if there is a winner and updates the DOM with the winner's letter and hides player's
+    //    turn language
     if (checkEndGame()) {
         winnerEl.innerText = `Congratulations player ${getWinner}!!  YOU WIN!!`;
         playersEl.innerText = ``
-        for (i=0; i < POCKETS.length; i++){  //=== empties each pocket
+        for (i=0; i < POCKETS.length; i++){  //=== empties each pocket if there is a winner
             POCKETS[i] = 0; 
         }
     } else {
-        winnerEl.innerText = ``;
+        winnerEl.innerText = ``; //keeps text hidden if there is no winner
     }
 }
 
@@ -126,18 +121,18 @@ function handleMove(e) {
         return;
     }
     i = e.target.id;        //=== assigns the id of the event target which will be used as the index in the array
-    stones = POCKETS[i];    //=== assigns stones to the number of stones in the pocket selected
+    marbles = POCKETS[i];    //=== assigns marbles to the number of marbles in the pocket selected
     POCKETS[i] = 0;         //=== updates the current pocket to zero
     i++;                    //=== updates the index so that we can move to the next pocket 
-    for (stones; stones > 0; stones--) {    //=== loops through the POCKETS array adding stones to each pocket until there are
-        if (i < POCKETS.length) {           // no stones left
+    for (marbles; marbles > 0; marbles--) {    //=== loops through the POCKETS array adding marbles to each pocket until there are
+        if (i < POCKETS.length) {           // no marbles left
             if (playersTurn === 'A' && i === 13) {  //=== check which player's turn it is and check if we're in the opponent's mancala so it
-                                                    // can be skipped otherwise keep disbursing stones
+                                                    // can be skipped otherwise keep disbursing marbles
                 i++;        // moves to the next pocket
-                stones++;   // resets stones
+                marbles++;   // resets marbles
             } else if (playersTurn === 'B' && i === 6) {
                 i++;        // moves to the next pocket
-                stones++;   // resets stones
+                marbles++;   // resets marbles
             } else {
             POCKETS[i]++;
             // render();
@@ -148,7 +143,7 @@ function handleMove(e) {
         }
     }
     playerScores(POCKETS[6], POCKETS[13]); //=== assigns playerScores to the mancala pockets
-    pocketTotal(); //=== runs function to determine total stones in each sides pockets
+    pocketTotal(); //=== runs function to determine total marbles in each sides pockets
     if (checkEndGame()) {  //=== proceeds with tallyFinalScores and getWinner if game over
         tallyFinalScores();
         getWinner = checkWinner();
@@ -167,7 +162,7 @@ function handleMove(e) {
 }
 
 function playerScores(scoreA, scoreB) {
-    //==== function playerScores - this will count the number of stones in each mancala and update the scores
+    //==== function playerScores - this will count the number of marbles in each mancala and update the scores
      scores.playerA = scoreA;
      scores.playerB = scoreB ;
      render();
@@ -216,7 +211,7 @@ function checkEndGame() {
 }
 
 function tallyFinalScores() {
-    //adds remaining stones to the player who still has stones in their pockets
+    //adds remaining marbles to the player who still has marbles in their pockets
     scores.playerA = scores.playerA + pocketTotals.playerA;
     scores.playerB = scores.playerB + pocketTotals.playerB;
       
