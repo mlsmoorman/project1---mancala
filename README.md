@@ -1,14 +1,12 @@
-# project1---mancala
-<<<<<<< HEAD
- 
-=======
+# Welcome to the world of Mancala!
 
-Welcome to the world of Mancala!                                                                                              
+#### The word Mancala is derived from an Arabic root meaning "to move".
 
->>>>>>> fe58340dcd47a8e5f6b6b4dd21bb97de02944c65
-The word Mancala is derived from an Arabic root meaning "to move".
+### History  
+One of the oldest known games to be played today, Mancala has been found in archeological evidence dating back as early as 700AD in East Africa, however, some of the oldest boards date back to approximately 5,780BC in Jordan.
 
-History:  One of the oldest known games to be played today, Mancala has been found in archeological evidence dating back as early as 700AD in East Africa, however, some of the oldest boards date back to approximately 5,780BC in Jordan.
+///////////////////////////////
+### The Game
 
 SetUp:  To start the game board shows an empty Mancala and score of zero assigned to each player along with 6 pockets on each side of the board containing 4 stones -- side A and side B.
 
@@ -25,6 +23,59 @@ Winning the Game:
   2. The player that still has pieces on their side of the board captures those pieces and they are deposited to that player's Mancala
   3. The player with the most pieces in their Mancala at the end of the game WINS!!!
 
+///////////////////////////////
 
+### SCREENSHOTS HERE
 
-  //future version - CAPTURE// If the last piece dropped is in an empty pocket on the player's side of the board, that piece along with any pieces in the pocket directly opposite are moved to the player's Mancala
+///////////////////////////////
+
+### Technologies Used
+  MVC Method using:
+  1. HTML - set up the static/unchanging information that is located on the DOM
+      Includes:
+      - the Header "Mancala"
+      - Mancala for each player
+      - Replay box
+
+  2. CSS - set up the appearance of the DOM
+      Includes:
+      - use of a flex layout for the overall screen
+      - incorporates vmin so that all aspects of the game are interactive and change with the screen size
+      - used hover to hightlight which button the user has the mouse over
+      - used box-shadow to create a glow behind the header and game board
+
+  3. JavaScript - game play
+      Includes:
+      - init function to set the initial values of the game/resets them once replay is hit
+      - render function to set the look of the game and change it as game play continues
+      - calls 5 sub-functions to update the DOM:
+          - renderScores - update scores
+          - renderPlayers - update players
+          - renderSideA - update sideA marbles
+          - renderSideB - update sideB marbles
+          - renderWinner - update winner
+      - gameplay begins with a random player selection and the click of a button which calls the      moveMarbles function
+          - moves marbles across the gameboard according to game rules
+          - calls the gamePlay function
+              - calls the updatePlayersScores function
+              - calls the updatePocketTotals function
+              - calls the checkEndGame function
+                - if true calls the tallyFinalScores and checkWinner functions
+                - else game play continues by checking if the player landed in their own Mancala to keep
+                  the player the same or move on to the next player by calling the changePlayer function
+
+///////////////////////////////
+
+### LINK TO DEPLOY GAME HERE
+
+///////////////////////////////
+
+### Future Updates
+
+  1. Capture Function - If the last piece dropped is in an empty pocket on the player's side of the board, that piece along with any pieces in the pocket directly opposite are moved to the player's Mancala
+
+  2. Hover pocket CSS - hovering over a pocket will reveal the count of the stones within that pocket
+
+  3. Removal of the buttons themselves and allow players to click within the actual pockets
+
+  4. Removal of images for marbles and tie in actual marble pieces that can be moved by the players from one pocket to the next

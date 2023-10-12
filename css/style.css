@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    background-color: #ecd1bea8;
 }
 
 body {
@@ -23,6 +24,7 @@ header {
     color: purple;
     letter-spacing: 2vmin;
     box-shadow: 0 0 75px 15px #e39059;
+    border-radius: 25%;
 }
 
 p {
@@ -84,6 +86,7 @@ footer {
     grid-row-start: -5;
     grid-row-end: -4;
     border-color:   rgb(240, 98, 98);
+    background-color: rgba(240, 98, 98, 0.436);
 }
 
 .container > div.mancala-B {
@@ -93,14 +96,15 @@ footer {
     grid-row-start: -2;
     grid-row-end: -1;
     border-color:   orange;
+    background-color: rgba(255, 166, 0, 0.39);
 }
 
 /*===== sets the format for the play buttons =====*/
 .container > button {
     border-radius: 25%;
     margin: 2vmin;
-    border: 0.5vmin solid #de7c3b;
-    background-color: #ecb896;
+    border: 0.5vmin solid #3bb0de;
+    background-color: #3bb0de49;
 }
 
 /*===== sets the format for the pockets within the grid that hold marbles =====*/
@@ -114,21 +118,24 @@ footer {
 /*===== border color for side A =====*/
 .container > div.totalsA {
     border-color:   rgb(240, 98, 98);
+    background-color: rgba(240, 98, 98, 0.436);
 }
 
 /*===== border color for side B =====*/
 .container > div.totalsB {
     border-color:   orange;
+    background-color: rgba(255, 166, 0, 0.39);
 }
 
 /*===== removes borders from the empty space on the grid*/
 #space {
     border: 0px;
+    background-color: thistle
 }
 
 /*===== changes button color to purple when hovered over =====*/
 button:hover {
     color: white;
-    background-color: purple;
+    background-color: rgba(128, 0, 128, 0.451);
 }
 

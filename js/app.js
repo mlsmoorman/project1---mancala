@@ -57,7 +57,7 @@ function init() {
     POCKETS[6]= 0; // updating the mancala pockets #6 and #13 to a starting number of 0
     POCKETS[13] = 0;
     
-    pocketTotal(); //=== pocketTotal initializes to 24 each:
+    updatePocketTotal(); //=== pocketTotal initializes to 24 each:
 
     getWinner = 'A'; //=== starts winner as player A
     
@@ -67,13 +67,22 @@ function init() {
 //************************************* RENDER ************************************* //
 function render() {
     //=== update the screen to show who's turn it is
-    playersEl.innerText = `It's Player ${playersTurn}'s Turn!`;
-    //=== update the player's scores
-    scoreAEl.innerText = scores.playerA; 
-    scoreBEl.innerText = scores.playerB;
+    renderScores(); //=== update the player's scores on screen
+    renderPlayers(); //=== updates current player on screen
     renderSideA(); //=== keeps side A pockets updated with the correct number of marbles
     renderSideB(); //=== keeps side B pockets updated with the correct number of marbles
     renderWinner(); //=== checks for winner and shows winner on screen removing player's turn 
+}
+
+function renderScores() {
+    //=== update the player's scores on screen
+    scoreAEl.innerText = scores.playerA; 
+    scoreBEl.innerText = scores.playerB;
+}
+
+function renderPlayers() {
+    //=== updates current player on screen
+    playersEl.innerText = `It's Player ${playersTurn}'s Turn!`;
 }
 
 function renderSideA() {
@@ -143,7 +152,7 @@ function moveMarbles(e) {
 
 function gamePlay(idx) {
     updatePlayerScores(POCKETS[6], POCKETS[13]); //=== assigns playerScores to the mancala pockets
-    pocketTotal(); //=== determines total marbles in each sides pockets
+    updatePocketTotal(); //=== determines total marbles in each sides pockets
     if (checkEndGame()) {  //=== proceeds with tallyFinalScores and getWinner if game over
         tallyFinalScores();
         getWinner = checkWinner();
@@ -177,7 +186,7 @@ function changePlayer () {
     render();
 }
 
-function pocketTotal() {
+function updatePocketTotal() {
     //=== totals side A and side B pockets and assigns pocketTotals the values
     let playerAPocketTotal = 0;
     let playerBPocketTotal = 0;
