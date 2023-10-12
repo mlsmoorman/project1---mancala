@@ -146,6 +146,7 @@ function moveMarbles(e) {
             }
         } else {
             i = 0; // resets index to 0 once we get to the end of the array
+            marbles++; // adds back in missing marble
         }
     }
     gamePlay(i);
@@ -175,6 +176,7 @@ function updatePlayerScores(scoreA, scoreB) {
     //==== function playerScores - this will count the number of marbles in each mancala and update the scores
      scores.playerA = scoreA;
      scores.playerB = scoreB ;
+     console.log(scores);
      render();
 }
 
@@ -204,7 +206,7 @@ function updatePocketTotal() {
         playerA: playerAPocketTotal,
         playerB: playerBPocketTotal
     }
-
+    console.log(pocketTotals)
 }
 
 function checkEndGame() {

@@ -1,4 +1,5 @@
-# Welcome to the world of Mancala!
+## Welcome to the world of...
+![alt text](https://i.imgur.com/P9zSVLQl.png)
 
 #### The word Mancala is derived from an Arabic root meaning "to move".
 
