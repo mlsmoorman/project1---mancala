@@ -1,21 +1,5 @@
 # project1---mancala
-                                                                         ,--,                   
-          ____                          ,--.                          ,---.'|                   
-        ,'  , `.   ,---,              ,--.'|  ,----..     ,---,       |   | :      ,---,        
-     ,-+-,.' _ |  '  .' \         ,--,:  : | /   /   \   '  .' \      :   : |     '  .' \       
-  ,-+-. ;   , || /  ;    '.    ,`--.'`|  ' :|   :     : /  ;    '.    |   ' :    /  ;    '.     
- ,--.'|'   |  ;|:  :       \   |   :  :  | |.   |  ;. /:  :       \   ;   ; '   :  :       \    
-|   |  ,', |  '::  |   /\   \  :   |   \ | :.   ; /--` :  |   /\   \  '   | |__ :  |   /\   \   
-|   | /  | |  |||  :  ' ;.   : |   : '  '; |;   | ;    |  :  ' ;.   : |   | :.'||  :  ' ;.   :  
-'   | :  | :  |,|  |  ;/  \   \'   ' ;.    ;|   : |    |  |  ;/  \   \'   :    ;|  |  ;/  \   \ 
-;   . |  ; |--' '  :  | \  \ ,'|   | | \   |.   | '___ '  :  | \  \ ,'|   |  ./ '  :  | \  \ ,' 
-|   : |  | ,    |  |  '  '--'  '   : |  ; .''   ; : .'||  |  '  '--'  ;   : ;   |  |  '  '--'   
-|   : '  |/     |  :  :        |   | '`--'  '   | '/  :|  :  :        |   ,/    |  :  :         
-;   | |`-'      |  | ,'        '   : |      |   :    / |  | ,'        '---'     |  | ,'         
-|   ;/          `--''          ;   |.'       \   \ .'  `--''                    `--''           
-'---'                          '---'          `---`                                             
-                                                                                                
-
+ 
 The word Mancala is derived from an Arabic root meaning "to move".
 
 History:  One of the oldest known games to be played today, Mancala has been found in archeological evidence dating back as early as 700AD in East Africa, however, some of the oldest boards date back to approximately 5,780BC in Jordan.

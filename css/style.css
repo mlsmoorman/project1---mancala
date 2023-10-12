@@ -83,6 +83,7 @@ footer {
     grid-column-start: 1;
     grid-row-start: -5;
     grid-row-end: -4;
+    border-color:   rgb(240, 98, 98);
 }
 
 .container > div.mancala-B {
@@ -91,6 +92,7 @@ footer {
     grid-column-end: 9;
     grid-row-start: -2;
     grid-row-end: -1;
+    border-color:   orange;
 }
 
 /*===== sets the format for the play buttons =====*/
@@ -98,7 +100,7 @@ footer {
     border-radius: 25%;
     margin: 2vmin;
     border: 0.5vmin solid #de7c3b;
-    background-color: #e39059;
+    background-color: #ecb896;
 }
 
 /*===== sets the format for the pockets within the grid that hold marbles =====*/
@@ -107,6 +109,16 @@ footer {
     border-radius: 24%;
     background-size:cover;
     background-repeat: no-repeat;
+}
+
+/*===== border color for side A =====*/
+.container > div.totalsA {
+    border-color:   rgb(240, 98, 98);
+}
+
+/*===== border color for side B =====*/
+.container > div.totalsB {
+    border-color:   orange;
 }
 
 /*===== removes borders from the empty space on the grid*/

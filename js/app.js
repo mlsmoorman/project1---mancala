@@ -94,7 +94,7 @@ function renderSideA() {
 function renderSideB() {
     //=== updates all pockets on side B on screen to show the total number of marbles per pocket
     totalsB.forEach(function(pocketElB, idx) {
-        pocketElB.style.backgroundImage = `url(imgs/marbles${POCKETS[idx+7]}.png)`;        
+        pocketElB.style.backgroundImage = `url(imgs/marbles${POCKETS[idx+7]}.png)`;   
     })
 }
 
