@@ -21,6 +21,8 @@ let getWinner;
 /*----------------------------*/                    
 /*----- CACHED ELEMENTS  -----*/
 /*----------------------------*/
+const instructionsEl = document.querySelector('#instructions')
+const popUpEl = document.querySelector(".inst")
 const pocketsBtn = document.querySelector('.container'); // cache player's selection
 const playersEl = document.querySelector('#player-turn'); // cache player's turn
 const scoreAEl = document.querySelector('#scoreA'); // cache player A's score
@@ -33,6 +35,8 @@ const replayEl = document.querySelector('footer');  // cache the replay element
 /*---------------------------*/
 /*----- EVENT LISTENERS -----*/
 /*---------------------------*/
+instructionsEl.addEventListener('click', renderInstructions);
+popUpEl.addEventListener('click', renderCloseWindow);
 pocketsBtn.addEventListener('click', moveMarbles); // logs which button is clicked
 replayEl.addEventListener('click', replayGame); // listens for player to click the Play Again button
 
@@ -74,6 +78,16 @@ function render() {
     renderWinner(); //=== checks for winner and shows winner on screen removing player's turn 
 }
 
+function renderInstructions() {
+    popUpEl.style.opacity = "1";
+    popUpEl.style.zIndex="10"
+}
+
+function renderCloseWindow() {
+    popUpEl.style.opacity = "0"
+    popUpEl.style.zIndex = "-10";
+}
+
 function renderScores() {
     //=== update the player's scores on screen
     scoreAEl.innerText = scores.playerA; 
@@ -110,17 +124,6 @@ function renderSideB() {
 function renderWinner() {
     //=== checks if there is a winner and updates the DOM with the winner's letter and hides player's
     //    turn language
-    // if (checkEndGame()) {
-    //     winnerEl.innerText = `Congratulations player ${getWinner}!!  YOU WIN!!`;
-    //     playersEl.innerText = ``
-    //     replayEl.innerText = 'PLAY AGAIN?'
-    //     for (i=0; i < POCKETS.length; i++){  //=== empties each pocket if there is a winner
-    //         POCKETS[i] = 0; 
-    //     }
-    // } else {
-    //     winnerEl.innerText = ''; //keeps text hidden if there is no winner
-    //     replayEl.innerText = '';
-    // }
     if (checkEndGame()) {
         if (getWinner != 'TIE') {
             winnerEl.innerText = `Congratulations player ${getWinner}!!  YOU WIN!!`;

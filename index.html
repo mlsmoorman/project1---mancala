@@ -10,7 +10,31 @@
 </head>
 <body>
     <header>MANCALA</header>
+
+    <button id="instructions">Click here to see how to play.</button>
+
+    <div class="inst" id="inst">
+        <div class="inst-header">
+            <div class="title">Welcome to Mancala</div>
+        </div>
+        <p class="inst-body">The object of the game is to capture the most marbles by the end of the game.</p>
+            <p class="inst-body" id="details"><strong>Game Play:</strong></p>
+            <p class="inst-body" id="details">The game begins with one player (selected by random draw) picking a pocket from their side of the game board. </p> 
+            <p class="inst-body" id="details">Player A = Choose buttons labeled A...</p>
+            <p class="inst-body" id="details">Player B = Choose buttons labeled B...</p>
+            <p class="inst-body" id="details">The chosen pocket will then disburse around the board dropping one stone in each pocket, including the player's Mancala but skipping the opponents Mancala.</p>
+            <p class="inst-body" id="details">If the count ends in the player's Mancala, that player gets to take another turn.</p>
+            <p class="inst-body" id="details"><strong>Winning the Game:</strong></p>
+            <p class="inst-body" id="details">The game ends when all 6 pockets on one side of the Mancala board are empty. The player that still has pieces on their side of the board captures those pieces and they are deposited to that player's Mancala automatically and included in the total score at the end of the game.</p>
+            <p class="inst-body" id="details">The player with the most pieces in their Mancala at the end of the game WINS!!!</p>
+            <p class="inst-body" id="details">Click here to begin and <strong>GOOD LUCK!!</strong></p>
+        </p>
+    </div>
+    <div id="overlay"></div>
     
+
+
+
     <!-- top of game decorations -->
     <section id="markers-top">
         <div></div>
@@ -22,6 +46,7 @@
         <div></div>
     </section>
     
+
     <!-- GAME BOARD -->
     <main class="game">
         <p id="game-play">
