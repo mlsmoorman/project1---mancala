@@ -10,6 +10,8 @@
 </head>
 <body>
     <header>MANCALA</header>
+    
+    <!-- top of game decorations -->
     <section id="markers-top">
         <div></div>
         <div></div>
@@ -20,36 +22,43 @@
         <div></div>
     </section>
     
-    
+    <!-- GAME BOARD -->
     <main class="game">
         <p id="game-play">
             <p id="player-turn">Player X Turn</p>
             <p id="winner"></p>
         </p>
     </main>
+
+    <!--creates a container to hold the game board itself-->
     <section class="container">
+
+        <!-- player A's label -->
         <div id="6" class="mancala-A"> Player A Mancala</div>
+        
+        <!-- player A's buttons -->
         <button id="5" class="button-A6">A6</button>
         <button id="4" class="button-A5">A5</button>
         <button id="3" class="button-A4">A4</button>
         <button id="2" class="button-A3">A3</button>
         <button id="1" class="button-A2">A2</button>
         <button id="0" class="button-A1">A1</button>
-
-        <div id="13" class="mancala-B"> Player B Mancala</div>
-        
         <div id="space"></div>
+        
+        <!-- player A's score -->
         <div id="scoreA" class="totalsA">scoreA</div>
+        
+        <!-- A side pockets -->
         <div id="A6" class="totalsA"></div>
         <div id="A5" class="totalsA"></div>
         <div id="A4" class="totalsA"></div>
         <div id="A3" class="totalsA"></div>
         <div id="A2" class="totalsA"></div>
         <div id="A1" class="totalsA"></div>
-                      
         <div id="space"></div>
         <div id="space"></div>
-
+        
+        <!-- B side pockets -->
         <div id="B1" class="totalsB"></div>
         <div id="B2" class="totalsB"></div>
         <div id="B3" class="totalsB"></div>
@@ -57,8 +66,14 @@
         <div id="B5" class="totalsB"></div>
         <div id="B6" class="totalsB"></div>
         
+        <!-- player B's label -->
+        <div id="13" class="mancala-B"> Player B Mancala</div>
+        
+        <!-- player B's score -->
         <div id="scoreB" class="totalsB">scoreB</div>
         <div id="space"></div>
+        
+        <!-- player B's buttons -->
         <button id="7" class="button-B1">B1</button>
         <button id="8" class="button-B2">B2</button>
         <button id="9" class="button-B3">B3</button>
@@ -67,8 +82,10 @@
         <button id="12" class="button-B6">B6</button>  
     </section>
   
+    <!-- play again box -->
     <footer id="replay">PLAY AGAIN?</footer>
 
+    <!-- bottom of game decorations -->
     <section id="markers-bottom">
         <div></div>
         <div></div>

@@ -55,8 +55,7 @@ p {
     height: 5vmin;
     border-width: 1.5vmin;
     border-style: solid;
-    border-color: transparent transparent lightcoral;
-    
+    border-color: transparent transparent lightcoral;   
 }
 
 /* ===== replay button =====*/
@@ -78,6 +77,7 @@ footer {
     box-shadow: 0 0 75px 15px #e39059;
 }
 
+/*===== labels each player's mancala =====*/
 .container > div.mancala-A {
     font-size: 1.5vmin;
     grid-column-start: 1;
@@ -93,12 +93,15 @@ footer {
     grid-row-end: -1;
 }
 
+/*===== sets the format for the play buttons =====*/
 .container > button {
     border-radius: 25%;
     margin: 2vmin;
-    border: 0.5vmin solid teal;
+    border: 0.5vmin solid #de7c3b;
+    background-color: #e39059;
 }
 
+/*===== sets the format for the pockets within the grid that hold marbles =====*/
 .container * {
     border: 4px solid rgb(179, 146, 240);
     border-radius: 24%;
@@ -106,10 +109,12 @@ footer {
     background-repeat: no-repeat;
 }
 
+/*===== removes borders from the empty space on the grid*/
 #space {
     border: 0px;
 }
 
+/*===== changes button color to purple when hovered over =====*/
 button:hover {
     color: white;
     background-color: purple;
