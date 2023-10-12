@@ -110,12 +110,29 @@ function renderSideB() {
 function renderWinner() {
     //=== checks if there is a winner and updates the DOM with the winner's letter and hides player's
     //    turn language
+    // if (checkEndGame()) {
+    //     winnerEl.innerText = `Congratulations player ${getWinner}!!  YOU WIN!!`;
+    //     playersEl.innerText = ``
+    //     replayEl.innerText = 'PLAY AGAIN?'
+    //     for (i=0; i < POCKETS.length; i++){  //=== empties each pocket if there is a winner
+    //         POCKETS[i] = 0; 
+    //     }
+    // } else {
+    //     winnerEl.innerText = ''; //keeps text hidden if there is no winner
+    //     replayEl.innerText = '';
+    // }
     if (checkEndGame()) {
-        winnerEl.innerText = `Congratulations player ${getWinner}!!  YOU WIN!!`;
-        playersEl.innerText = ``
-        replayEl.innerText = 'PLAY AGAIN?'
-        for (i=0; i < POCKETS.length; i++){  //=== empties each pocket if there is a winner
-            POCKETS[i] = 0; 
+        if (getWinner != 'TIE') {
+            winnerEl.innerText = `Congratulations player ${getWinner}!!  YOU WIN!!`;
+            playersEl.innerText = ``
+            replayEl.innerText = 'PLAY AGAIN?'
+            for (i=0; i < POCKETS.length; i++){  //=== empties each pocket if there is a winner
+                POCKETS[i] = 0; 
+            }
+        } else {
+            winnerEl.innerText = "IT'S A TIE!!!"
+            playersEl.innerText = ``
+            replayEl.innerText = 'PLAY AGAIN?'
         }
     } else {
         winnerEl.innerText = ''; //keeps text hidden if there is no winner
@@ -176,7 +193,6 @@ function updatePlayerScores(scoreA, scoreB) {
     //==== function playerScores - this will count the number of marbles in each mancala and update the scores
      scores.playerA = scoreA;
      scores.playerB = scoreB ;
-     console.log(scores);
      render();
 }
 
@@ -206,7 +222,6 @@ function updatePocketTotal() {
         playerA: playerAPocketTotal,
         playerB: playerBPocketTotal
     }
-    console.log(pocketTotals)
 }
 
 function checkEndGame() {
@@ -224,18 +239,17 @@ function tallyFinalScores() {
     //adds remaining marbles to the player who still has marbles in their pockets
     scores.playerA = scores.playerA + pocketTotals.playerA;
     scores.playerB = scores.playerB + pocketTotals.playerB;
-      
     render();
 }
 
 function checkWinner() {
     // checks who's score is highest and returns 'A' 'B' or 'IT'S A TIE'
     if (scores.playerA > scores.playerB) {
-        return "A"
+        return 'A'
     } else if (scores.playerB > scores.playerA) {
-        return "B"
+        return 'B'
     } else {
-        return "IT'S A TIE"
+        return 'TIE'
     }
     render()
 }
