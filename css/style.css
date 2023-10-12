@@ -37,6 +37,7 @@ p {
     grid-template-columns: repeat(7, 10vmin);  
     gap: 1vmin;
     margin-top: 0.5vmin;
+    background-color: transparent;
 }
 
 #markers-top > div {
@@ -44,6 +45,7 @@ p {
     border-width: 1.5vmin;
     border-style: solid;
     border-color: lightcoral transparent transparent;
+    background-color: transparent;
 }
 
 #markers-bottom {
@@ -51,6 +53,7 @@ p {
     grid-template-columns: repeat(7, 10vmin);  
     gap: 1vmin;
     margin-top: 0.5vmin;
+    background-color: transparent;
 }
 
 #markers-bottom > div {
@@ -58,15 +61,17 @@ p {
     border-width: 1.5vmin;
     border-style: solid;
     border-color: transparent transparent lightcoral;   
+    background-color: transparent;
 }
 
 /* ===== replay button =====*/
 footer {
-    border-width: 1vmin;
-    border-style: solid;
-    border-color: lightblue;
-    margin-top: 1.5vmin;
-    margin-bottom: 0;
+    /* border-width: 1vmin; */
+    /* border-style: transparent; */
+    /* border-color: lightblue; */
+    margin-top: 2vmin;
+    margin-bottom: 1vmin;
+    background-color: transparent;
 }
 
 /*===== game board =====*/
@@ -136,6 +141,6 @@ footer {
 /*===== changes button color to purple when hovered over =====*/
 button:hover {
     color: white;
-    background-color: rgba(128, 0, 128, 0.451);
+    background-color: purple;
 }
 

@@ -113,11 +113,13 @@ function renderWinner() {
     if (checkEndGame()) {
         winnerEl.innerText = `Congratulations player ${getWinner}!!  YOU WIN!!`;
         playersEl.innerText = ``
+        replayEl.innerText = 'PLAY AGAIN?'
         for (i=0; i < POCKETS.length; i++){  //=== empties each pocket if there is a winner
             POCKETS[i] = 0; 
         }
     } else {
-        winnerEl.innerText = ``; //keeps text hidden if there is no winner
+        winnerEl.innerText = ''; //keeps text hidden if there is no winner
+        replayEl.innerText = '';
     }
 }
 

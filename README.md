@@ -1,6 +1,6 @@
 # Welcome to the world of Mancala!
 
-* #### The word Mancala is derived from an Arabic root meaning "to move". *
+#### The word Mancala is derived from an Arabic root meaning "to move".
 
 ### History  
 One of the oldest known games to be played today, Mancala has been found in archeological evidence dating back as early as 700AD in East Africa, however, some of the oldest boards date back to approximately 5,780BC in Jordan.
@@ -22,7 +22,21 @@ Winning the Game:
   2. The player that still has pieces on their side of the board captures those pieces and they are deposited to that player's Mancala
   3. The player with the most pieces in their Mancala at the end of the game WINS!!!
 
-### SCREENSHOTS HERE
+### Screenshots
+
+Initial game board:
+
+![alt text](https://i.imgur.com/JUrYyWrl.png)
+
+During game play:
+
+![alt text](https://i.imgur.com/eB9skRYl.png)
+![alt text](https://i.imgur.com/Ya4FY9ll.png)
+
+Winner board:
+
+![alt text](https://i.imgur.com/kAGmrJVl.png)
+
 
 ### Technologies Used
   MVC Method using:
