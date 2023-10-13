@@ -61,7 +61,7 @@ Winner boards:
                 - if true calls the tallyFinalScores and checkWinner functions
                 - else game play continues by checking if the player landed in their own Mancala to keep the player the same or move on to the next player by calling the changePlayer function
 
-[### PLAY NOW!](https://mlsmoorman.github.io/project1---mancala/)
+[PLAY NOW!](https://mlsmoorman.github.io/project1---mancala/)
 
 ### The Game
 
