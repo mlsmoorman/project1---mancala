@@ -82,10 +82,12 @@ Winning the Game:
 
 ### Future Updates
 
-  1. Capture Function - If the last piece dropped is in an empty pocket on the player's side of the board, that piece along with any pieces in the pocket directly opposite are moved to the player's Mancala
+  1. Create the option for a computer opponent
+  
+  2. Capture Function - If the last piece dropped is in an empty pocket on the player's side of the board, that piece along with any pieces in the pocket directly opposite are moved to the player's Mancala
 
-  2. Hover pocket CSS - hovering over a pocket will reveal the count of the stones within that pocket
+  3. Hover pocket CSS - hovering over a pocket will reveal the count of the stones within that pocket
 
-  3. Removal of the buttons themselves and allow players to click within the actual pockets
+  4. Removal of the buttons themselves and allow players to click within the actual pockets
 
-  4. Removal of images for marbles and tie in actual marble pieces that can be moved by the players from one pocket to the next
+  5. Removal of images for marbles and tie in actual marble pieces that can be moved by the players from one pocket to the next
