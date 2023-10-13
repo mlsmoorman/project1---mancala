@@ -8,9 +8,9 @@ const PLAYERS = [
     "B"
 ]
 
-/*---------------------------*/
-/*----- STATE VARIABLES -----*/
-/*---------------------------*/
+/*---------------------*/
+/*----- VARIABLES -----*/
+/*---------------------*/
 let playersTurn;
 let scores;
 let pocketTotals;
@@ -21,8 +21,8 @@ let getWinner;
 /*----------------------------*/                    
 /*----- CACHED ELEMENTS  -----*/
 /*----------------------------*/
-const instructionsEl = document.querySelector('#instructions')
-const popUpEl = document.querySelector(".inst")
+const instructionsEl = document.querySelector('#instructions') // cache how to play button
+const popUpEl = document.querySelector(".inst") // cache instructions pop up box
 const pocketsBtn = document.querySelector('.container'); // cache player's selection
 const playersEl = document.querySelector('#player-turn'); // cache player's turn
 const scoreAEl = document.querySelector('#scoreA'); // cache player A's score
@@ -35,17 +35,17 @@ const replayEl = document.querySelector('footer');  // cache the replay element
 /*---------------------------*/
 /*----- EVENT LISTENERS -----*/
 /*---------------------------*/
-instructionsEl.addEventListener('click', renderInstructions);
-popUpEl.addEventListener('click', renderCloseWindow);
+instructionsEl.addEventListener('click', renderInstructions); // listens for a click within the instructions button
+popUpEl.addEventListener('click', renderCloseWindow); // listens for a click inside of the instructions popup to close the popup
 pocketsBtn.addEventListener('click', moveMarbles); // logs which button is clicked
 replayEl.addEventListener('click', replayGame); // listens for player to click the Play Again button
 
-/*--------------------------------------------*/
-/*----- CONTROLLER FUNCTIONS DEFINITIONS -----*/
-/*--------------------------------------------*/
+/*---------------------*/
+/*----- FUNCTIONS -----*/
+/*---------------------*/
 init ();
 
-//************************************* INIT ************************************* //
+//************************************* INIT *************************************//
 function init() {
     //==== function init - set the start status of the game and reset it once the replay button is hit
     playersTurn = PLAYERS[Math.floor(Math.random() * PLAYERS.length)]; //=== select random player to go first:
@@ -68,7 +68,7 @@ function init() {
     render();
 }
 
-//************************************* RENDER ************************************* //
+//************************************* RENDER *************************************//
 function render() {
     //=== update the screen to show who's turn it is
     renderScores(); //=== update the player's scores on screen
@@ -79,12 +79,14 @@ function render() {
 }
 
 function renderInstructions() {
+    //=== makes instructions visible and brings them to the front of the screen
     popUpEl.style.opacity = "1";
-    popUpEl.style.zIndex="10"
+    popUpEl.style.zIndex="10";
 }
 
 function renderCloseWindow() {
-    popUpEl.style.opacity = "0"
+    //=== makes instructions invisible and sends them to the back to avoid interferance with game play
+    popUpEl.style.opacity = "0";
     popUpEl.style.zIndex = "-10";
 }
 
@@ -196,7 +198,6 @@ function updatePlayerScores(scoreA, scoreB) {
     //==== function playerScores - this will count the number of marbles in each mancala and update the scores
      scores.playerA = scoreA;
      scores.playerB = scoreB ;
-     render();
 }
 
 function changePlayer () {
